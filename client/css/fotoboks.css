@@ -1,0 +1,56 @@
+.hidden{
+  display: none;
+}
+
+html, body{
+  text-align: center;
+  overflow: hidden;
+}
+
+body{
+  /* cursor: none !important; */
+  padding-top: 20px;
+  background-color: #333333;
+  background: url("/assets/bg.png");
+  background-size: contain;
+  /* background: linear-gradient(to bottom, #005a51 0%,#00463e 100%); */
+}
+
+#video{
+  position: absolute;
+  z-index: 3;
+}
+
+#flash{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 5;
+}
+
+.flashColor{
+  -webkit-transition: all 0.1s ease-in;
+  background-color: #F7EEE7;
+}
+
+.roundEdgeBig{
+  border-style: solid;
+  border-color: #FFFFFF;
+  border-width: 10px;
+  border-radius: 20px;
+}
+
+
+.gallery{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.galleryItem{
+  height: 100px;
+  border-style: solid;
+  border-color: #FFFFFF;
+  border-width: 5px;
+  border-radius: 10px;
+}
