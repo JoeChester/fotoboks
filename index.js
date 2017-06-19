@@ -4,7 +4,6 @@ const chalk = require('chalk')
 const moment = require('moment')
 const fs = require('fs')
 const glob = require("glob")
-const base64Img = require('base64-img')
 
 let config = require('./config.json')
 
@@ -53,7 +52,7 @@ app.post("/ul", (req, res) => {
 
 app.listen(config.port, function () {
   console.log("")
-  console.log(chalk.bold.blue("Fotoboks v0.0.1"))
+  console.log(chalk.bold.blue("Fotoboks v2.0.0"), chalk.grey("by Jonas Kleinkauf"))
   console.log(
     chalk.grey("[" + moment().format('HH:mm:ss') + "] ")
     + 'Up and running on port ' + config.port
