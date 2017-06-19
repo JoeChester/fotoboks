@@ -38,13 +38,18 @@ body{
   border-style: solid;
   border-color: #FFFFFF;
   border-width: 10px;
-  border-radius: 20px;
 }
 
 
 .gallery{
-  width: 100%;
-  margin-top: 10px;
+  width: 960px;
+  background-color: #FFFFFF;
+  margin: auto;
+  border-style: solid;
+  border-color: #FFFFFF;
+  border-width: 10px;
+  border-top-width: 30px;
+  border-bottom-width: 30px;
 }
 
 .galleryItem{
@@ -53,4 +58,19 @@ body{
   border-color: #FFFFFF;
   border-width: 5px;
   border-radius: 10px;
+}
+
+#fileCount{
+  position: absolute;
+  right: 20;
+  bottom: 20;
+  font-size: 50px;
+  font-family: sans-serif;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+#disclaimer{
+  font-family: sans-serif;
+  color: #FFFFFF;
 }

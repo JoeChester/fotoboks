@@ -1,4 +1,5 @@
 {
   "port": 4747,
-  "savepath": "C:\\Users\\Jonas\\Pictures"
+  "savepath": "C:\\Users\\Jonas\\Pictures",
+  "prefix": "test"
 }

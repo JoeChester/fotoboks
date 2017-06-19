@@ -55,7 +55,7 @@ function saveToServer(){
 
   $.ajax({
     type: "POST",
-    url: "ul.php",
+    url: "ul",
     data: {
       imgBase64: dataURL
     }
@@ -100,13 +100,23 @@ function snapshot(){
 function getGallery(){
   $.ajax({
     type: "GET",
-    url: "gallery.php",
-  }).done(function(o) {
-    galleryItems = jQuery.parseJSON(o);
+    url: "gallery",
+  }).done(function(galleryItems) {
     for(var i in galleryItems){
       if(galleryItems[i] != null && galleryItems[i] != undefined){
         $("#galleryItem" + i).attr("src", galleryItems[i]);
       }
     }
+  });
+  // Always also refresh the count
+  getCount();
+}
+
+function getCount(){
+  $.ajax({
+    type: "GET",
+    url: "num",
+  }).done(function(num) {
+    $("#fileCount").html(num);
   });
 }
