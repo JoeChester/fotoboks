@@ -1,5 +1,7 @@
 {
   "port": 4747,
-  "savepath": "C:\\Users\\Jonas\\Pictures",
-  "prefix": "test"
+  "savepath": "/home/pi/fotoboks/img",
+  "prefix": "fotoboks",
+  "pi_autodetect": false,
+  "pi_path": "/media/pi"
 }

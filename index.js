@@ -9,15 +9,28 @@ let config = require('./config.json')
 
 let app = express()
 
+let savepath = config.savepath
+
+if(config.pi_autodetect){
+  let basepath = config.pi_path
+  let folders = fs.readdirSync(basepath)
+  for(let usbpath of folders){
+    if(usbpath != "SETTINGS" && usbpath != "SETTINGS1" && usbpath != "SETTINGS2"){
+      savepath = basepath + "/" + usbpath;
+      break;
+    }	
+  }
+}
+
 app.use('/', express.static('client'))
-app.use('/img', express.static(config.savepath))
+app.use('/img', express.static(savepath))
 app.use(bodyParser.urlencoded({
   extended: true,
   limit: 100000000 
 }));
 
 app.get("/gallery", (req, res) => {
-  let files = fs.readdirSync(config.savepath)
+  let files = fs.readdirSync(savepath)
   let k = 0
   let gallery = []
   for (var i = files.length - 1; i >= 0; i--) {
@@ -33,7 +46,7 @@ app.get("/gallery", (req, res) => {
 })
 
 function fileCount(){
-  return glob.sync(config.savepath + "/*.png", {}).length;
+  return glob.sync(savepath + "/*.png", {}).length;
 }
 
 app.get("/num", (req, res) => {
@@ -44,7 +57,7 @@ app.post("/ul", (req, res) => {
   let timestamp = new Date() / 1000;
   let filename = config.prefix + "_" + (fileCount() + 1) + "_" + timestamp + ".png";
   let base64Img = req.body.imgBase64.replace("data:image/png;base64,", "");
-  fs.writeFile(config.savepath + "/" + filename, base64Img, 'base64', function (err) {
+  fs.writeFile(savepath + "/" + filename, base64Img, 'base64', function (err) {
     console.log('File created');
     res.sendStatus(200);
   });
