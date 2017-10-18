@@ -11,12 +11,15 @@ let app = express()
 
 let savepath = config.savepath
 
+let detectedUsb = false
+
 if(config.pi_autodetect){
   let basepath = config.pi_path
   let folders = fs.readdirSync(basepath)
   for(let usbpath of folders){
     if(usbpath != "SETTINGS" && usbpath != "SETTINGS1" && usbpath != "SETTINGS2"){
       savepath = basepath + "/" + usbpath;
+      detectedUsb = true;
       break;
     }	
   }
@@ -43,6 +46,13 @@ app.get("/gallery", (req, res) => {
     }
   }
   res.json(gallery);
+})
+
+app.get("/info", (req, res) => {
+  let info = {}
+  info.savepath = savepath
+  info.detectedUsb = detectedUsb
+  res.json(info);
 })
 
 function fileCount(){
