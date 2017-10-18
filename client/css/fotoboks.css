@@ -74,3 +74,13 @@ body{
   font-family: sans-serif;
   color: #FFFFFF;
 }
+
+#info{
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  background-color: #FFFFFF;
+  z-index: 6;
+  font-size: 100px;
+  color: #000000;
+}

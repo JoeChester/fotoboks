@@ -2,6 +2,6 @@
   "port": 4747,
   "savepath": "/home/pi/fotoboks/img",
   "prefix": "fotoboks",
-  "pi_autodetect": false,
+  "pi_autodetect": true,
   "pi_path": "/media/pi"
 }

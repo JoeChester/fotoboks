@@ -26,7 +26,27 @@ document.addEventListener("keydown", function(event) {
   };
 });
 
+function getAppInfo(){
+  $.ajax({
+    type: "GET",
+    url: "info",
+  }).done(function(info) {
+    $("#version").html(info.version);
+    $("#appAuthor").html(info.appAuthor);
+    $("#savepath").html(info.savepath);
+    var usb = "No";
+    if(info.detectedUsb){
+        usb = "Yes";
+    }
+    $("#detectedUsb").html(usb);
+    setTimeout(function(){
+    	$("#info").addClass("hidden");
+    }, 5000)
+  });
+}
+
 $(function() {
+  getAppInfo();
   getGallery();
 });
 

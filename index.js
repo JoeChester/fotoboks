@@ -52,6 +52,8 @@ app.get("/info", (req, res) => {
   let info = {}
   info.savepath = savepath
   info.detectedUsb = detectedUsb
+  info.appAuthor = "Jonas Kleinkauf"
+  info.version = "2.1"
   res.json(info);
 })
 
